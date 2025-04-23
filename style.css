@@ -1,0 +1,143 @@
+@font-face {
+    font-family: CosmicVibrant;
+    src: url(/assets/fonts/CosmicVibrant.otf);
+}
+
+@font-face {
+    font-family: Gill;
+    src: url(/assets/fonts/Gill.otf);
+}
+
+:root {
+    --light-blue: #75fafd;
+    --dark-blue: #111c27;
+    --pink: #8f869e;
+
+    --text1: 7.5em;
+    --text2: 3.5em;
+    --text3: 1.25em;
+    --text4: 1em;
+
+    --header-height: 275px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    color: var(--light-blue);
+    font-family: Gill, sans-serif;
+}
+
+h1 {
+    font-size: var(--text1);
+}
+
+h2 {
+    font-size: var(--text2);
+    font-weight: lighter;
+}
+
+h3 {
+    font-size: var(--text3);
+    font-weight: lighter;
+}
+
+p {
+    font-size: var(--text4);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--dark-blue);
+}
+
+header {
+    width: 100%;
+    height: var(--header-height);
+    /*background-color: #265955;*/
+    /*border-bottom: solid 10px var(--pink);*/
+    /*aspect-ratio: 5 / 1;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url("assets/images/Header.png");
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    & > img {
+        position: absolute;
+        /*display: none;*/
+        width: 100%;
+        display: none;
+        z-index: -1;
+    }
+
+    & > h1 {
+        font-family: CosmicVibrant, sans-serif;
+        font-weight: 200;
+        margin-bottom: -20px;
+    }
+
+    & > h2 {
+
+    }
+}
+
+.divider {
+    height: 13px;
+    width: 100%;
+    background-color: var(--pink);
+}
+
+.selector {
+    display: flex;
+
+    & > * {
+        padding: 20px;
+    }
+    & > *:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+
+.subtitle {
+
+}
+
+.project {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+
+    & > .image {
+        & > img {
+            width: 400px;
+            display: block;
+        }
+    }
+
+    & > .text {
+        margin: 10px;
+
+        & > h2 {
+            font-family: CosmicVibrant, sans-serif;
+        }
+    }
+}
+
+.project:nth-child(even) {
+    flex-direction: row-reverse;
+
+    & > .text {
+        text-align: right;
+    }
+}

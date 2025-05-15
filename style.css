@@ -14,8 +14,9 @@
     --pink: #8f869e;
 
     --text1: 7.5em;
-    --text2: 3.5em;
-    --text3: 1.25em;
+    --text2: 3.0em;
+    --text2-5: 3.2em;
+    --text3: 1.35em;
     --text4: 1em;
 
     --header-height: 275px;
@@ -27,9 +28,31 @@
     box-sizing: border-box;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6, a, .tab-selector > label {
     color: var(--light-blue);
     font-family: Gill, sans-serif;
+}
+
+a {
+    color: var(--light-blue);
+    text-decoration: none;
+}
+
+.hover-box:has(*:hover) a , a:not(.fake-underline):hover {
+    text-decoration: underline;
+}
+
+a.fake-underline {
+    position: relative;
+}
+a.fake-underline:hover::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0.25rem;
+    background-color: currentColor;
+    transform: translateY(-0.6rem);
 }
 
 h1 {
@@ -41,7 +64,7 @@ h2 {
     font-weight: lighter;
 }
 
-h3 {
+h3, .tab-selector > label {
     font-size: var(--text3);
     font-weight: lighter;
 }
@@ -75,7 +98,6 @@ header {
 
     & > img {
         position: absolute;
-        /*display: none;*/
         width: 100%;
         display: none;
         z-index: -1;
@@ -98,38 +120,72 @@ header {
     background-color: var(--pink);
 }
 
-.selector {
+.tab-selector {
     display: flex;
+    margin-bottom: 35px;
 
     & > * {
-        padding: 20px;
+        padding-top: 20px;
+        padding-bottom: 10px;
     }
     & > *:not(:last-child) {
-        margin-right: 20px;
+        margin-right: 60px;
+    }
+
+    & input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    & input[type="radio"]:checked + label {
+        border-bottom: 2px var(--light-blue) solid;
+    }
+
+    & label {
+        cursor: pointer;
     }
 }
 
 .subtitle {
+    margin-bottom: 35px;
+}
 
+.projects {
+    width: 12.2in;
 }
 
 .project {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    margin-bottom: 30px;
 
     & > .image {
-        & > img {
-            width: 400px;
+        & img {
+            width: 365px;
             display: block;
+        }
+        & .subtext {
+            padding: 5px 5px 0 5px;
+            display: inline-block;
+            /*width: 100%;*/
         }
     }
 
     & > .text {
-        margin: 10px;
+        margin: 10px 12px 0 12px;
 
         & > h2 {
             font-family: CosmicVibrant, sans-serif;
+            font-size: var(--text2-5);
+            & > a {
+                font-family: CosmicVibrant, sans-serif;
+            }
+        }
+        & > h3 {
+            margin: 0.2rem 0;
         }
     }
 }
@@ -141,3 +197,4 @@ header {
         text-align: right;
     }
 }
+

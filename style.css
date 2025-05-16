@@ -198,3 +198,6 @@ header {
     }
 }
 
+.copyright > h3 {
+    margin: 60px;
+}
